@@ -1,7 +1,6 @@
 using jsreport.Shared;
 using jsreport.Types;
 using Microsoft.AspNetCore.Mvc;
-using Sample.JsReport.Extensions;
 
 namespace Sample.JsReport.Controllers;
 
@@ -28,9 +27,7 @@ public class ConverterHtml : ControllerBase
 				Content = html
 			}
 		});
-
-		var result = UtilExtensions.ReadToEnd(report.Content);
 		
-		return File(result, "application/pdf", "file.pdf");
+		return File(report.Content, "application/pdf", "file.pdf");
 	}
 }
